@@ -1,0 +1,79 @@
+{% extends 'userhome.html' %}
+
+
+{% block content%}
+<center>
+<font color="orange">{{msg}}</font>
+
+<h2>Edit Profile User</h2> 
+
+<form method="POST" action=/user/updateDataUser/ >
+<!--- Get sends data to the URl and it is less secured as compared to POST.-->
+<!-- Action specifies the location where we have to send the data.-->
+{% csrf_token %}
+
+<table class="table table-hover">
+<tr >
+<td>Name</td>
+<td><input type="text" name="name" value="{{userDetails.name}}"/> </td>
+</tr>
+<tr>
+<td>Username</td>
+<td><input type="text" name="email" value="{{userDetails.username}}" readonly/> </td>
+</tr>
+
+<tr>
+<td>Mobile</td>
+<td><input type="text" name="mobile" value="{{userDetails.mobile}}"/> </td>
+</tr>
+
+<tr>
+<td>Address</td>
+<td>
+<textarea name="address">{{userDetails.address}}</textarea>
+</td>
+</tr>
+
+<tr>
+<td>City</td>
+<td>
+<select name="city">
+<option>{{userDetails.city}}</option>
+<option>Indore</option>
+<option>Ujjain</option>
+<option>Bhopal</option>
+<option>Mumbai</option>
+<option>Bengaluru</option>
+<option>Delhi</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>Gender</td>
+<td>
+    Male <input type="radio" name="gender" value="male" {{m}}/>
+    &nbsp;&nbsp;
+    Female <input type="radio" name="gender" value="female" {{f}}/>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<center>
+<input type="submit" name="s" value="Update Profile"/>
+
+</center>
+
+</td>
+</tr>   
+</table>
+
+</form>  
+
+            <!--- Form is a tag used to take user input from the application.---> 
+                    <!---method specify the way how the form data will be managed.--> 
+</center>
+
+{% endblock %}
+
+

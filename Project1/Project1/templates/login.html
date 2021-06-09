@@ -1,0 +1,48 @@
+{% extends 'master_template.html' %}
+
+{% block content %}
+{% block slider %}
+<center>
+    <font color="orange">{{msg}}</font>
+    
+    <h2>Login Here!!!</h2> 
+    
+    <form method="POST" action={{curl}}login/ >
+    <!--- Get sends data to the URl and it is less secured as compared to POST.-->
+    <!-- Action specifies the location where we have to send the data.-->
+    {% csrf_token %}
+    
+    <table class="table table-hover table-bordered" >
+    
+    <tr>
+    <td>Username</td>
+    <td><input type="text" name="email" placeholder="User Name/Email"/> </td>
+    </tr>
+    
+    <tr>
+    <td>Password</td>
+    <td><input type="password" name="password" placeholder="Password"/> </td>
+    </tr>
+    
+    <tr>
+    <td colspan="2">
+    <center>
+    <input type="submit" name="s" value="Login"/>
+    
+    </center>
+    
+    </td>
+    </tr>   
+    </table>
+    
+    </form>  
+
+    </center>
+    
+                <!--- Form is a tag used to take user input from the application.---> 
+                        <!---method specify the way how the form data will be managed.--> 
+    
+    
+
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'userhome.html' %}
+
+{% block content %}
+
+<center>
+<h1>View & Manage Products here</h1>
+
+<table class="table table-hover">
+<thead>
+<tr>
+<th scope="col">ProductID</th>
+<th scope="col">Title</th>
+<th scope="col">Description</th>
+<th scope="col">Base Price &#8377</th>
+<th scope="col">Images</th>
+<th scope="col">User ID</th>
+<th scope="col">Action</th>
+</tr>
+</thead>
+{% for row in pDetails %}
+<tr>
+<td>{{row.pid}}</td>
+<td>{{row.title}}</td>
+<td>{{row.description}}</td>
+<td>{{row.baseprice}}</td>
+<td>
+<img src="{{media_url}}{{row.file1}}" height="70" width="70" />
+<img src="{{media_url}}{{row.file2}}" height="70" width="70" />
+<br>
+<img src="{{media_url}}{{row.file3}}" height="70" width="70" />
+<img src="{{media_url}}{{row.file4}}" height="70" width="70" />    
+</td>    
+<td>{{row.uid}}</td>
+<td><a href="/user/bidproduct/?pid={{row.pid}}">Bid Product</a></td>
+</tr>
+{% endfor %}
+</table>
+
+</center>
+{% endblock %}
+
+

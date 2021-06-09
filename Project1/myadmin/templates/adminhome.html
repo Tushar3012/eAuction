@@ -1,0 +1,42 @@
+{% extends 'master_template.html' %}
+
+
+{% block content%}
+                    <h2>Welcome to the eAuction Admin Page</h2>
+                    <p>Buy or sell anything you want.....</p>
+{% endblock %}
+                    
+{% block mainmenu %}
+
+<!--- Start mainmenu area --->
+<p class="text-right"><b>Welcome admin : {{sunm}}</b></p>
+
+    <div class="mainmenu-area">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div> 
+                <div class="navbar-collapse collapse">
+                    
+                    <ul class="nav navbar-nav">
+                        <li class="deactive"><a href='{{curl}}/myadmin'>Admin Home</a></li>    
+                        <li><a href=/myadmin/manageusers/ >Manage users</a></li>
+                        <li><a href=/myadmin/addcategory/ >Add category</a></li>
+                        <li><a href=/myadmin/addsubcategory/ >Add Subcategory</a></li>
+                        <li><a href=/myadmin/changepassword_admin/ >Change Password</a></li>
+                        <li><a href={{curl}}/login/ >Logout</a></li>
+                                            
+                    </ul>
+                </div>  
+            </div>
+        </div>
+    </div> 
+    <!-- End mainmenu area -->
+    {% endblock %}
+

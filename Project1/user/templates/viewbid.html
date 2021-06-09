@@ -1,0 +1,25 @@
+{% extends 'userhome.html' %}
+
+{% block content %}
+
+<center>
+<table>
+<tr>
+<th>Bidding ID</th>
+<th>Bidding Price</th>
+<th>UserID</th>
+<th>Info </th>
+</tr>
+
+{% for row in bDetails %}
+<tr>
+<th>{{row.bid}}</th>
+<th>{{row.bprice}}</th>
+<th>{{row.uid}}</th>
+<th>{{row.dt}}</th>
+</tr>
+    
+{% endfor %}
+</table>
+</center>
+{% endblock %}

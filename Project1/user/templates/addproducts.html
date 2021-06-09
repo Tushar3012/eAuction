@@ -1,0 +1,91 @@
+{% extends 'userhome.html' %}
+
+
+{% block content%}
+<p class="text-left"><a href="/user/viewproductuser/" > View & Manage Products</p></a>
+<script>
+    function showSubcategory(cnm)
+    {
+        var xhttp=new XMLHttpRequest() //to make variable in JS var keyword is used.
+        xhttp.open("GET","/user/showSubcategory/?cnm="+cnm,true) // for asynchronous transmission 'true' is used.
+        xhttp.send()
+
+        xhttp.onreadystatechange=function(){
+            if(xhttp.readyState==4 && xhttp.status==200)
+            {
+                document.getElementById("response").innerHTML=xhttp.responseText //document js ka global keyword hai, is page par jitne bhi elements hai unko acces karne ka kaam karta hai.
+            }
+        }
+    } //new is a kyeword for dynamic memory allocation and xhttp is an isntance.
+</script>
+
+
+<h1>Add Product Here!!!</h1>
+    
+<font color="orange">{{msg}}</font>
+    
+    <form enctype="multipart/form-data" method="post" action=/user/addproducts/   >
+    {% csrf_token %}
+    <table class="table table-bordered table-hover">
+    <tr>
+    <td>Title</td>
+    <td>
+    <input style="width:70%;" type="text" name="title" placeholder="Enter title"/>
+    </td>
+    </tr>
+    <tr>
+    <td>Category</td>
+    <td>
+    <select onchange="showSubcategory(this.value)" style="width:70%;" name="catnm" > <!---showsubCategory is the JS function And onchange is an event and by default activated-->
+    <option>Select category</option><!---this referes to the current instance-->
+    {% for c in clist %}
+    <option>{{c.catnm}}</option>
+    {% endfor %}
+    </select>
+    </td>
+    </tr>
+    <tr>
+        <td>Sub Category</td>
+        <td>
+        <select style="width:70%;" id="response" name="subcatnm">
+        <option>Select Sub Category</option>
+        </select>
+    </td>
+    
+    </tr>
+    
+    <tr>
+    <td>Base Price &#8377</td>
+    <td>
+    <input style="width:70%;" type="text" name="baseprice" placeholder="Enter base price"/>
+    </td>
+    </tr>
+    <tr>
+    <td>Description</td>
+    <td>
+    <textarea cols="31" rows="5" name="description" placeholder="Enter description"></textarea>
+    </td>
+    </tr>
+    <tr>
+    <td>Product Icon</td>
+    <td>
+    File 1 : <input type="file" name="file1" required/>
+    File 2 : <input type="file" name="file2"/>
+    File 3 : <input type="file" name="file3"/>
+    File 4 : <input type="file" name="file4"/>
+    <tr>
+    <td>
+    <center>
+    <input type="submit"  value="Add Product" /> 
+    </center>
+    </td>
+    </tr>
+    </td>
+    </tr>
+    </table>
+    </form>
+</center>
+
+{% endblock %}
+
+

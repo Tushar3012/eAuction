@@ -1,0 +1,41 @@
+{% extends 'master_template.html' %}
+
+
+{% block content%}
+                    <h2>Welcome to the eAuction User Page</h2>
+                    <p>Buy or sell anything you want.....</p>
+{% endblock %}
+                     
+{% block mainmenu %}
+
+<!--- Start mainmenu area --->
+<p class="text-right"><b>Welcome user : {{sunm}}</b></p>
+    <div class="mainmenu-area">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div> 
+                <div class="navbar-collapse collapse">
+                    
+                    <ul class="nav navbar-nav">
+                        <li class="deactive"><a href='/user/'>User Home</a></li>
+                        <li><a href=/user/viewproducts/ >View Products</a></li>
+                        <li><a href=/user/addproducts/ >Add Products</a></li>
+                        <li><a href=/user/editprofileuser/ >Edit Profile</a></li>
+                        <li><a href=/user/changepassworduser/ >Change Password</a></li>    
+                        <li><a href={{curl}}/login/ >Logout</a></li>                    
+                    </ul>
+                </div>  
+            </div>
+        </div>
+    </div>
+     
+    <!-- End mainmenu area -->
+    {% endblock %}
+

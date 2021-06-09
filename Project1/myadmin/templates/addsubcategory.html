@@ -1,0 +1,39 @@
+{% extends 'adminhome.html' %}
+
+{% block content%}
+<center>
+
+<h1>Add Subcategory here!!!</h1>
+<font color= "orange">{{msg}}</font>
+<form method="POST" action="/myadmin/addsubcategory/" enctype="multipart/form-data">
+{% csrf_token %}
+<table>
+<tr>
+    <td>Category Name</td>
+    <td>
+        <select style="widows: 70%;" name="catnm">
+            <option>Select Category<option>
+            {% for row in clist %}
+            <option>{{row.catnm}}</option>
+            {% endfor %}
+        </select>
+    </td>
+</tr>        
+<tr>
+<td>Subcategory Name</td>
+<td><input type="text" name="subcatnm" placeholder="Enter Subcategory name"></td>
+</tr>
+<tr>
+<td>Subcategory Icon</td>
+<td><input type="file" name="caticon"></td>
+</tr>
+<tr>
+<td><input type="submit" value="Add Subcategory"></td>
+</tr>
+</table>
+</form>
+
+</center>
+
+
+{% endblock %}
